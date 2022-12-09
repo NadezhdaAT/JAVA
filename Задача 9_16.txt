@@ -1,0 +1,54 @@
+
+/*Найти номер последнего минимального элемента массива.*/
+package Lesson_9_16;
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main_9_16 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите размер массива");
+        int ran = in.nextInt();
+        int ar[] = new int[ran];
+        for (int i = 0; i < ar.length; i++) {
+            Random r = new Random();
+            int c = r.nextInt(100)-50;
+            ar[i] = c;
+        }
+        System.out.println("Массив:   ");
+        for (int i = 0; i < ar.length; i++) {
+            System.out.print(ar[i] + " ");
+        }
+        System.out.println();
+
+        int x = 0;
+        int indexMax = 0;
+        int indexMin = 0;
+        int min = ar[0];
+        for (int i = 0; i < ar.length; i++) {
+            if (ar[i] > x) {
+                x = ar[i];
+                indexMax=i;
+            } else if (ar[i] <= min) {
+                min = ar[i];
+                indexMin = i;
+            }
+        }
+
+        System.out.println("Минимальное число массива " + min + " его индекс = " + indexMin);
+
+
+    }
+}
+
+
+"C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\lib\idea_rt.jar=55482:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\nadez\Lesson\src\out\production\Lesson Lesson_9_16.Main_9_16
+Введите размер массива
+15
+Массив:   
+41 11 32 -41 25 -24 -47 -48 12 13 20 4 16 39 -34 
+Минимальное число массива -48 его индекс = 7
+
+Process finished with exit code 0

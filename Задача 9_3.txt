@@ -1,0 +1,69 @@
+
+
+/*Дан массив. Составить программу:
+ * 1. Расчета квадратного корня из любого элемента массива.
+ * 2. Расчета среднего арифметического двух любых элементов массива.
+ * Предусмотреть возможность ошибочных обращений вне границ массива*/
+package Lesson_9_3;
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main_9_3 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите размер массива");
+        int ran = in.nextInt();
+        int ar[] = new int[ran];
+        for (int i = 0; i < ar.length; i++) {
+            Random r = new Random();
+            int c = r.nextInt(1000);
+            ar[i] = c;
+        }
+        System.out.println("Массив:   ");
+        for (int i = 0; i < ar.length; i++) {
+            System.out.print(ar[i] + " ");
+        }
+        System.out.println("\n" + "Задайте номер элемента массива:  ");
+        int num = in.nextInt();
+
+        if (num <= ran) {
+            int d = ar[num];
+            double sq = Math.sqrt(d);
+            System.out.println("Квадратный корень = " + sq);
+        } else {
+            System.out.println("Введите другой элемент массива");
+        }
+        System.out.println("Задайте первый номер элемента массива: ");
+        int num1 = in.nextInt();
+        System.out.println("Задайте второй номер элемента массива: ");
+        int num2 = in.nextInt();
+        if (num1 <= ran && num <= ran) {
+            int d1 = (ar[num1] + ar[num2]) / 2;
+            System.out.println("Среднее арифметическое двух чисел = " + d1);
+        } else {
+            System.out.println("Введите другой элемент массива");
+        }
+    }
+
+
+}
+
+"C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\lib\idea_rt.jar=55505:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\nadez\Lesson\src\out\production\Lesson Lesson_9_3.Main_9_3
+Введите размер массива
+10
+Массив:   
+128 498 486 383 786 488 633 208 815 426 
+Задайте номер элемента массива:  
+6
+Квадратный корень = 25.15949125081825
+Задайте первый номер элемента массива: 
+5
+Задайте второй номер элемента массива: 
+8
+Среднее арифметическое двух чисел = 651
+
+Process finished with exit code 0
+
+

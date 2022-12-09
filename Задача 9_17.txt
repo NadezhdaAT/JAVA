@@ -1,0 +1,55 @@
+/*Дан массив. Вывести на экран сначала его неотрицательные элементы,
+ * затем отрицательные.*/
+package Lesson_9_17;
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main_9_17 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Введите размер массива");
+        int ran = in.nextInt();
+        int ar[] = new int[ran];
+        for (int i = 0; i < ar.length; i++) {
+            Random r = new Random();
+            int c = r.nextInt(100) - 50;
+            ar[i] = c;
+        }
+        System.out.println("Массив:   ");
+        for (int i = 0; i < ar.length; i++) {
+            System.out.print(ar[i] + " ");
+        }
+        System.out.println();
+        System.out.println("Все неотрицательные элементы: \n");
+        for (int i = 0; i < ar.length; i++) {
+            if (ar[i] >= 0) {
+                System.out.print(ar[i] + " ");
+            }
+        }
+        System.out.println("\n");
+        System.out.println("Все отрицательные элементы: \n");
+        for (int i = 0; i < ar.length; i++) {
+            if (ar[i] < 0) {
+                System.out.print(ar[i] + " ");
+            }
+        }
+    }
+}
+
+
+
+"C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\lib\idea_rt.jar=55440:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\nadez\Lesson\src\out\production\Lesson Lesson_9_17.Main_9_17
+Введите размер массива
+5
+Массив:   
+0 -7 -23 34 -28 
+Все неотрицательные элементы: 
+
+0 34 
+
+Все отрицательные элементы: 
+
+-7 -23 -28 
+Process finished with exit code 0

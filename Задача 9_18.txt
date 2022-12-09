@@ -1,0 +1,95 @@
+
+/*Дан двумерный массив. Определить:
+ * 1.Количество максимальных элементов в массиве.
+ * 2. Количество минимальных элементов в массиве. */
+package Lesson_9_18;
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main_9_18 {
+    public static void main(String[] args) {
+        System.out.print("Введите число строк в массиве: ");
+        Scanner input = new Scanner(System.in);
+        int m = input.nextInt();
+        System.out.print("Введите число столбцов в массиве: ");
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        System.out.println();
+        System.out.println("Число строк в массиве: " + m);
+        System.out.println("Число столбцов в массиве: " + n);
+
+        int[][] matrix = new int[m][n];
+        Random rand = new Random();
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                matrix[i][j] = rand.nextInt(100);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++)
+                System.out.print(matrix[i][j] + "\t");
+            System.out.println();
+        }
+        int max = matrix[0][0];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if (max < matrix[i][j]) {
+                    max = matrix[i][j];
+                }
+            }
+        }
+
+        int count = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if (max == matrix[i][j]) {
+                    count++;
+                }
+            }
+        }
+
+        System.out.println("Максимальный элемент массива: " + max);
+        System.out.println("Количество максимальных элементов: " + count);
+
+        int min = matrix[0][0];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if (min > matrix[i][j]) {
+                    min = matrix[i][j];
+                }
+            }
+        }
+
+        int count1 = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                if (min == matrix[i][j]) {
+                    count1++;
+                }
+            }
+        }
+
+        System.out.println("Минимальный элемент массива: " + min);
+        System.out.println("Количество минимальных элементов: " + count1);
+    }
+
+}
+
+"C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\lib\idea_rt.jar=55467:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\nadez\Lesson\src\out\production\Lesson Lesson_9_18.Main_9_18
+Введите число строк в массиве: 6
+Введите число столбцов в массиве: 8
+
+Число строк в массиве: 6
+Число столбцов в массиве: 8
+78	70	2	21	26	59	35	53	
+99	34	46	67	38	76	6	67	
+74	71	32	4	9	70	89	85	
+65	5	74	57	92	5	81	25	
+39	30	47	29	76	17	43	16	
+19	44	42	4	99	18	87	90	
+Максимальный элемент массива: 99
+Количество максимальных элементов: 2
+Минимальный элемент массива: 2
+Количество минимальных элементов: 1
+
+Process finished with exit code 0

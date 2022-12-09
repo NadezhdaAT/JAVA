@@ -1,0 +1,81 @@
+/*Дан двумерный массив. Составить программу:
+ * 1. Нахождения минимального значения среди элементов любой строки двумерного массива.
+ * 2. Нахождения максимального значения среди элементов любого столбца двумерного массива.*/
+package Lesson_9_19;
+
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main_9_19 {
+    public static void main(String[] args) {
+        System.out.print("Введите число строк в массиве: ");
+        Scanner input = new Scanner(System.in);
+        int m = input.nextInt();
+        System.out.print("Введите число столбцов в массиве: ");
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        System.out.println();
+
+        int[][] matrix = new int[m][n];
+        Random rand = new Random();
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                matrix[i][j] = rand.nextInt(100);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++)
+                System.out.print(matrix[i][j] + "\t");
+            System.out.println();
+        }
+
+        System.out.print("Введите номер строки массива, в которой будем искать минимальный элемент: ");
+        Scanner input1 = new Scanner(System.in);
+        int line = input1.nextInt();
+        System.out.print("Введите номер столбца массива, в котором будем искать максимальный элемент: ");
+        Scanner in2 = new Scanner(System.in);
+        int column = in2.nextInt();
+        System.out.println();
+
+
+        int min = matrix[line - 1][0];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (min > matrix[line - 1][j])
+                    min = matrix[line - 1][j];
+            }
+        }
+        System.out.printf("\nМинимальное значение среди элементов в строке %s = %s", line, min);
+
+        int max = matrix[0][column - 1];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (max < matrix[i][column - 1])
+                    max = matrix[i][column - 1];
+            }
+        }
+        System.out.printf("\nМаксимальное значение среди элементов в столбце %s = %s", column, max);
+
+
+    }
+}
+
+
+
+
+"C:\Program Files\Java\jdk-18.0.2.1\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\lib\idea_rt.jar=55413:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.2.2\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\nadez\Lesson\src\out\production\Lesson Lesson_9_19.Main_9_19
+Введите число строк в массиве: 6
+Введите число столбцов в массиве: 7
+
+79	63	77	87	12	1	25	
+60	71	92	92	3	50	81	
+18	38	91	80	17	77	23	
+12	60	41	28	57	59	96	
+26	76	21	95	59	38	15	
+44	41	1	88	65	5	60	
+Введите номер строки массива, в которой будем искать минимальный элемент: 3
+Введите номер столбца массива, в котором будем искать максимальный элемент: 2
+
+
+Минимальное значение среди элементов в строке 3 = 17
+Максимальное значение среди элементов в столбце 2 = 76
+Process finished with exit code 0
